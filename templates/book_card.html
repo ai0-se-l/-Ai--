@@ -1,0 +1,10 @@
+<div class="card">
+    <img src="{{ book.cover_image_url }}" alt="Обложка книги {{ book.title }}">
+    <h3><a href="{{ url_for('book_detail', book_id=book.id) }}">{{ book.title }}</a></h3>
+    <p>{{ book.description }}</p>
+    <span class="author">{{ book.author }}</span>
+    <span class="genre">{{ book.genre }}</span>
+    <span class="rating">{{ book.rating }} ★</span>
+    <button class="btn read-btn">Читать</button>
+    <button class="btn favorite-btn">Добавить в избранное</button>
+</div>

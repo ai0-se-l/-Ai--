@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main-content">
+    <!-- Левая панель -->
+    <div class="left-panel">
+        <div class="text-content">
+            <h2>{{ book.title }}</h2>
+            <p>{{ book.description }}</p>
+            <p><strong>Жанр:</strong> {{ book.genre }}</p>
+            <p><strong>Рейтинг:</strong> {{ book.rating }} ★</p>
+        </div>
+        <div class="buttons">
+            {% if chapters %}
+                <h3>Главы:</h3>
+                <ul>
+                    {% for chapter in chapters %}
+                        <li>
+                            <a href="{{ url_for('chapter_detail', book_id=book.id, chapter_number=chapter.number) }}">
+                                Глава {{ chapter.number }}: {{ chapter.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Нет доступных глав для этой книги.</p>
+            {% endif %}
+            <a href="{{ url_for('index') }}"><button>Назад</button></a>
+        </div>
+    </div>
+
+    <!-- Правая панель (может содержать дополнительный контент) -->
+    <div class="right-panel">
+        <!-- Например, рекомендации или другая информация -->
+    </div>
+</div>
+{% endblock %}

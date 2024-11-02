@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="main-content chapter-detail-page"> <!-- Добавлен класс 'chapter-detail-page' -->
+    <!-- Левая панель -->
+    <div class="left-panel">
+        <div class="text-content">
+            <h2>{{ chapter.title }}</h2>
+            <p>{{ chapter.content }}</p>
+        </div>
+        <div class="buttons chapter-buttons"> <!-- Добавлен класс 'chapter-buttons' -->
+            <button class="chapter-button" onclick="previousChapter({{ chapter.id }})">Предыдущая глава</button>
+            <button class="chapter-button" onclick="nextChapter({{ chapter.id }})">Следующая глава</button>
+            <button class="chapter-button" onclick="shortenText({{ chapter.id }})">Сократить текст</button>
+            <button class="chapter-button" onclick="showEssence({{ chapter.id }})">Показать суть</button>
+            <button class="chapter-button" onclick="testFunction()">Тестовая функция</button>
+            <button class="chapter-button" onclick="reportBug()">Сообщить об ошибке</button>
+            <button class="chapter-button" onclick="rate({{ chapter.book.id }})">Оценить книгу</button>
+        </div>
+    </div>
+
+    <!-- Правая панель -->
+    <div class="right-panel">
+        <!-- Дополнительный контент, например, список других книг или главы -->
+    </div>
+</div>
+{% endblock %}

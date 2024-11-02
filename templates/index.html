@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="main-content">
+    <!-- Левая панель -->
+    <div class="left-panel">
+        <div class="text-content">
+            <h2>Добро пожаловать, {{ username }}!</h2>
+            <p>
+                Здесь вы можете читать свои любимые книги, обсуждать их с другими пользователями и получать уведомления о новых анонсах.
+                Используйте кнопки ниже для навигации между главами, сокращения текста или отправки отзывов и отчетов об ошибках.
+            </p>
+            <p>
+                Наслаждайтесь чтением и взаимодействием с сообществом AIBook!
+            </p>
+        </div>
+        <div class="buttons">
+            <!-- Кнопки предназначены для страницы главы, поэтому оставим здесь пустыми или добавим только необходимые кнопки для главной страницы -->
+            <!-- Например, кнопка выхода -->
+            <a href="{{ url_for('logout') }}"><button>Выйти</button></a>
+        </div>
+    </div>
+
+    <!-- Правая панель -->
+    <div class="right-panel">
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск книг...">
+        </div>
+        <div class="cards-container">
+            {% for book in books %}
+            <div class="card">
+                <h3><a href="{{ url_for('book_detail', book_id=book.id) }}">{{ book.title }}</a></h3>
+                <p>{{ book.description }}</p>
+                <span class="genre">{{ book.genre }}</span>
+                <span class="rating">{{ book.rating }} ★</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Верхняя панель -->
+    <div class="top-bar">
+        <div class="logo">AIBook(MWP)</div>
+        <div class="menu">
+            <a href="/">Главная</a>
+            <a href="#">Профиль</a>
+            <a href="#">Анонсы</a>
+            <a href="#">Обсуждения</a>
+            <a href="#">Уведомления</a>
+            <a href="{{ url_for('logout') }}">Выйти из профиля</a>
+        </div>
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/buttons.js') }}"></script>
+</body>
+</html>
